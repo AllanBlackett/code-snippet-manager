@@ -21,7 +21,8 @@ class SidebarComponent extends Component {
     <div className={classes.sidebarContainer}>
       <Button
         onClick={this.newSnippetBtnClick}
-        className={classes.newSnippetBtn}>New Snippet</Button>
+        // When user clicks on 'new notes' change to 'cancel'
+        className={classes.newSnippetBtn}>{this.state.addingSnippet ? 'Cancel' : 'New snippet'}</Button>
         {
           this.state.addingSnippet ? 
           <div>
@@ -30,6 +31,9 @@ class SidebarComponent extends Component {
             placeholder='Enter Snippet title'
             onKeyUp={(e) => this.updateTitle(e.target.value)}>
             </input>
+            <Button 
+            className={classes.newSnippetSubmitBtn}
+            onClick={this.newSnippet}>Submit Snippet</Button>
           </div> :
           null
         }
@@ -42,6 +46,9 @@ class SidebarComponent extends Component {
   }
   updateTitle = (txt) => {
     console.log('Here it is', txt)
+  }
+  newSnippet = () => {
+    console.log(this.state);
   }
 } 
 
