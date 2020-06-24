@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import ReactQuill from 'react-quill';
+import ReactQuill from 'react-quill';
 // import debounce from '../helpers';
 // import BorderColorIcon from '@material-ui/icons/BorderColor';
 import { withStyles } from '@material-ui/core/styles';
@@ -15,7 +15,13 @@ class EditorComponent extends Component {
     };   
   }
   render() {
-    return(<div>Hello from the editor</div>);
+    // Access to the classes variables from this.props
+    const { classes } = this.props;
+
+    return(
+    <div className={classes.editorContainer}>
+      <ReactQuill></ReactQuill>
+    </div>);
   }
 }
 
