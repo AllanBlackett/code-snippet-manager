@@ -1,26 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const firebase = require('firebase');
+
+class App extends Component {
+  constructor () {
+    super();
+    // Initial State
+    this.state = {
+      selectedSnippetIndex: null,
+      selectedSnippet: null,
+      snippets: null
+    }
+    
+  }
+
+  
+
+  render() {
+    return (
+      <div className="App">
+      </div>
+    );
+  }
+
+  //   
+  componentDidMount = () => {
+    // onSnapshot() is going to automatically gets called whenever the .collection('snippets') is updated inside firebase
+    // the function that I passed into onSnapshot() will get called as an argument  
+    firebase
+      .firestore()
+      .collection('snippets')
+      .onSnapshot(serverUpdate => {
+        const snippets = serverUpdate.docs.map(_doc => {
+          const data = _doc.data();
+          data['id'] = _doc.id;
+          return data;
+        });
+        console.log(snippets);
+        this.setState({ snippets: snippets });
+      });
+  }
+    
+  }
+
 
 export default App;
+
+
