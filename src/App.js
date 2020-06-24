@@ -22,7 +22,7 @@ class App extends Component {
       <div className="app-container">
         <SidebarComponent 
           selectedSnippetIndex={this.state.selectedSnippetIndex}
-          notes={this.state.snippets}></SidebarComponent>
+          snippets={this.state.snippets}></SidebarComponent>
         <EditorComponent></EditorComponent>
       </div>
     );
