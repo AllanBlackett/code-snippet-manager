@@ -14,4 +14,4 @@ class EditorComponent extends Component {
   }
 }
 
-export default EditorComponent;
+export default withStyles(styles)(EditorComponent);
