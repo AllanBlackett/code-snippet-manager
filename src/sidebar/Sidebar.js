@@ -7,11 +7,17 @@ import styles from './styles';
 
 class SidebarComponent extends Component {
   constructor() {
-    super();    
+    super();
+    this.state = {
+      addingSnippet: false,
+      title: null
+    };    
   }
   render() {
+
+    const { notes, classes, selectedSnippetIndex } = this.props;
     return(<div>Hello from the sidebar</div>);
-    
+
   }
 
 } 

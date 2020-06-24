@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import ReactQuill from 'react-quill';
-// import debounce from '../helpers';
+import debounce from '../helpers';
 // import BorderColorIcon from '@material-ui/icons/BorderColor';
 import { withStyles } from '@material-ui/core/styles';
 import styles from './styles';
+// import { debounce } from '@material-ui/core';
 
 class EditorComponent extends Component {
   constructor() {
@@ -37,6 +38,12 @@ class EditorComponent extends Component {
     // once state is update then call the update() method
     this.update();
   };
+  // Everytime a user types a letter or character, etc, it's going to keep making http request to the database. 
+  // debounce() prevents the database from updating everytime the value changes to allow the app to be more efficient.
+  // debounce() wait for the user to stop typing for 1 1/2 secounds before the call to the database. 
+  update = debounce(() => {
+    console.log('Updating Database');
+  }, 1500);
 }
 
 export default withStyles(styles)(EditorComponent);
