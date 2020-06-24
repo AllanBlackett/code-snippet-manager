@@ -15,12 +15,12 @@ class App extends Component {
     
   }
 
-
   render() {
     return (
       <div className="app-container">
         <SidebarComponent></SidebarComponent>
         <EditorComponent></EditorComponent>
+
       </div>
     );
   }

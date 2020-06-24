@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import styles from './styles';
-import List from '@material-ui/core/List';
-import { Divider, Button } from '@material-ui/core';
-import SidebarItemComponent from '../sidebaritem/sidebarItem';
+// import List from '@material-ui/core/List';
+// import { Divider, Button } from '@material-ui/core';
+// import SidebarElementComponent from '../src/sidebar-element/sidebarElement';
 
-class SidebarComponent extends React.Component {
-  constructor() {    
+class SidebarComponent extends Component {
+  constructor() {
+    super();    
   }
   render() {
     return(<div>Hello from the sidebar</div>);
+    
   }
 
 } 
