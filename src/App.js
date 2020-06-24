@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import SidebarComponent from './sidebar/Sidebar';
+import EditorComponent from './editor/Editor';
+import './App.css';
 
 const firebase = require('firebase');
 
@@ -14,11 +17,13 @@ class App extends Component {
     
   }
 
-  
-
   render() {
     return (
-      <div className="App">
+      <div className="app-container">
+        <SidebarComponent 
+          selectedSnippetIndex={this.state.selectedSnippetIndex}
+          notes={this.state.snippets}></SidebarComponent>
+        <EditorComponent></EditorComponent>
       </div>
     );
   }
