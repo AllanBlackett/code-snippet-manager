@@ -3,7 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import styles from './styles';
 // import List from '@material-ui/core/List';
 import { Divider, Button } from '@material-ui/core';
-// import SidebarElementComponent from '../src/sidebar-element/sidebarElement';
+// import SidebarElementComponent from '../sidebarElement/SidebarElement';
 
 class SidebarComponent extends Component {
   constructor() {
@@ -15,18 +15,21 @@ class SidebarComponent extends Component {
   }
   render() {
 
-    const { notes, classes, selectedSnippetIndex } = this.props;
+    const { snippets, classes, selectedSnippetIndex } = this.props;
+    
     return(
     <div className={classes.sidebarContainer}>
       <Button
         onClick={this.newSnippetBtnClick}
         className={classes.newSnippetBtn}>New Snippet</Button>
         {
-          this.state.addingNote ? 
+          this.state.addingSnippet ? 
           <div>
             <input type= 'text'
             className={classes.newSnippetInput}
-            placeholder='Enter Snis'></input>
+            placeholder='Enter Snippet title'
+            onKeyUp={(e) => this.updateTitle(e.target.value)}>
+            </input>
           </div> :
           null
         }
@@ -34,7 +37,11 @@ class SidebarComponent extends Component {
     );
   }
   newSnippetBtnClick = () => {
-    console.log('Button clicked');
+    // Whatever this.setState is, become the opposite (if true, become false. if false, become true)
+    this.setState({ title: null, addingSnippet: !this.state.addingSnippet });
+  }
+  updateTitle = (txt) => {
+    console.log('Here it is', txt)
   }
 } 
 
