@@ -21,10 +21,18 @@ class SidebarComponent extends Component {
       <Button
         onClick={this.newSnippetBtnClick}
         className={classes.newSnippetBtn}>New Snippet</Button>
+        {
+          this.state.addingNote ? 
+          <div>
+            <input type= 'text'
+            className={classes.newSnippetInput}
+            placeholder='Enter Snis'></input>
+          </div> :
+          null
+        }
     </div>
     );
   }
-
   newSnippetBtnClick = () => {
     console.log('Button clicked');
   }
