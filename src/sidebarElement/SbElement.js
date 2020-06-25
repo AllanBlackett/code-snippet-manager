@@ -15,7 +15,7 @@ class SidebarElementComponent extends Component {
     return(
     <div key={_index}>
       <ListItem
-        classname={classes.listItem}
+        className={classes.listItem}
         // If selected snippet index = true, then it will be higlighted
         selected={selectedSnippetIndex === _index}
         alignItems='flex-start'>  

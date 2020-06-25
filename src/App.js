@@ -32,8 +32,8 @@ class App extends Component {
           this.state.selectedSnippet ?
           <EditorComponent selectedSnippet={this.state.selectedSnippet}
           selectedSnippetIndex={this.state.selectedSnippet}
-          snippets={this.state.snippets}>
-          snippetUpdate={this.snippetUpdate}</EditorComponent> :
+          snippets={this.state.snippets}
+          snippetUpdate={this.snippetUpdate}></EditorComponent> :
           null
         }
       </div>
@@ -59,7 +59,36 @@ class App extends Component {
   }
     
   selectSnippet = (snippet, index) => this.setState({ selectedSnippetIndex: index, selectedSnippet: snippet });
-
+  snippetUpdate = (id, snippetObj) => {
+    firebase
+      .firestore()
+      .collection('snippets')
+      .doc(id)
+      .update({
+        title: snippetObj.title,
+        body: snippetObj.body,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      });
+  }
+  newSnippet = async (title) => {
+    const snippet = {
+      title: title,
+      body: ''
+    };
+    const newFromDB = await firebase
+      .firestore()
+      .collection('snippets')
+      .add({
+        title: snippet.title,
+        body: snippet.body,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      });
+      // When the user creates a new snippet, go into firebase and then update the currently selected snippet with the one the user just created
+    const newID = newFromDB.id;
+    await this.setState({ snippets: [...this.state.snippets, snippet] });
+    const newSnippetIndex = this.state.snippets.indexOf(this.state.snippets.filter(_snippet => _snippet.id === newID)[0]);
+    this.setState({ selectedSnippet: this.state.snippets[newSnippetIndex], selectedSnippetIndex: newSnippetIndex });
+  }
   }
 
 
