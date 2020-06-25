@@ -89,6 +89,25 @@ class App extends Component {
     const newSnippetIndex = this.state.snippets.indexOf(this.state.snippets.filter(_snippet => _snippet.id === newID)[0]);
     this.setState({ selectedSnippet: this.state.snippets[newSnippetIndex], selectedSnippetIndex: newSnippetIndex });
   }
+
+  deleteSnippet = async (snippet) => {
+    const snippetIndex = this.state.snippets.indexOf(snippet);
+    await this.setState({ snippets: this.state.snippets.filter(_snippet => _snippet !== snippet) });
+    if(this.state.selectedSnippetIndex === snippetIndex) {
+      this.setState({ selectedSnippetIndex: null, selectedSnippet: null });
+    } else {
+      this.state.snippets.length > 1 ?
+      // When user delete snippet, deselect the snippet [-1] to prevent server errors.
+      this.selectSnippet(this.state.snippets[this.state.selectedSnippetIndex - 1], this.state.selectedSnippetIndex - 1) :
+      this.setState({ selectedSnippetIndex: null, selectedSnippet: null });
+    }
+
+    firebase
+      .firestore()
+      .collection('snippets')
+      .doc(snippet.id)
+      .delete();
+  }
   }
 
 
