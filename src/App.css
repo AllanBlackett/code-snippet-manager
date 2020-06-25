@@ -38,3 +38,12 @@ html, body {
   top: 50px;
   left: calc(50% - 165px);
 }
+
+.ql-toolbar.ql-snow {
+  background-color: #fff;
+}
+
+.SidebarComponent-sidebarContainer-5 {
+  background-color: #fff;
+  
+}
