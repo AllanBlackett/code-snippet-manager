@@ -27,7 +27,7 @@ class SidebarElementComponent extends Component {
                 secondary={removeHTMLTags(_snippet.body.substring(0, 30)) + '...'}>
               </ListItemText>
             </div>
-            <DeleteIcon onClick={() => this.deleteNote(_snippet)}
+            <DeleteIcon onClick={() => this.deleteSnippet(_snippet)}
               className={classes.deleteIcon}>
 
             </DeleteIcon>
@@ -35,7 +35,13 @@ class SidebarElementComponent extends Component {
     </div>
     );
   }
-
+  selectSnippet = (n, i) => this.props.selectSnippet(n, i);
+  deleteSnippet = (snippet) => {
+    // To send a warning to the user if they want to delete the note
+    if(window.confirm(`Are you sure you want to delete: ${snippet.title}?`)) {
+      this.props.deleteSnippet(snippet);
+    }
+  }
 }
 
 export default withStyles(styles)(SidebarElementComponent);
