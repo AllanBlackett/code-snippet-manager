@@ -35,7 +35,6 @@ class EditorComponent extends Component {
     }
   }
 
-
   render() {
     // Access to the classes variables from this.props
     const { classes } = this.props;
@@ -68,7 +67,7 @@ class EditorComponent extends Component {
     this.update();
   };
 
-  // Everytime a user types a letter or character, etc, it's going to keep making http request to the database. 
+  //! Everytime a user types a letter or character, etc, it's going to keep making http request to the database. 
   // debounce() prevents the database from updating everytime the value changes to allow the app to be more efficient.
   // debounce() wait for the user to stop typing for 1 1/2 secounds before the call to the database. 
   update = debounce(() => {

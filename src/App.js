@@ -28,7 +28,8 @@ class App extends Component {
           selectSnippet={this.selectSnippet}
           newSnippet={this.newSnippet}></SidebarComponent>
         {
-        // When an element from the sidebar is selected, make the editor display
+        //! Using if/else conditional operator  
+        //  When an element from the sidebar is selected, make the editor display
           this.state.selectedSnippet ?
           <EditorComponent selectedSnippet={this.state.selectedSnippet}
           selectedSnippetIndex={this.state.selectedSnippet}
