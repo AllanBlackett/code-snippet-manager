@@ -46,13 +46,7 @@ class EditorComponent extends Component {
       // this.updateBody is going to be a function that is going to be asyncronous
         // that's going to set some state, and once the state updates, call the update function.   
     <div className={classes.editorContainer}>
-      <BorderColorIcon className={classes.editIcon}></BorderColorIcon>
-        <input
-          className={classes.titleInput}
-          placeholder='Snippet title...'
-          value={this.state.title ? this.state.title : ''}
-          onChange={(e) => this.updateTitle(e.target.value)}>
-        </input>
+      
       <ReactQuill
         value={this.state.text} 
         onChange={this.updateBody}>
