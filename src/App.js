@@ -32,7 +32,8 @@ class App extends Component {
           this.state.selectedSnippet ?
           <EditorComponent selectedSnippet={this.state.selectedSnippet}
           selectedSnippetIndex={this.state.selectedSnippet}
-          snippets={this.state.snippets}></EditorComponent> :
+          snippets={this.state.snippets}>
+          snippetUpdate={this.snippetUpdate}</EditorComponent> :
           null
         }
       </div>
