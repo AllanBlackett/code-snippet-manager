@@ -36,7 +36,7 @@ class SidebarElementComponent extends Component {
   }
   selectSnippet = (n, i) => this.props.selectSnippet(n, i);
   deleteSnippet = (snippet) => {
-    // To send a warning to the user if they want to delete the note
+    //! To send a warning to the user if they want to delete the note
     if(window.confirm(`Are you sure you want to delete: ${snippet.title}?`)) {
       this.props.deleteSnippet(snippet);
     }

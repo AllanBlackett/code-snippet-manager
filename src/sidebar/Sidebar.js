@@ -23,7 +23,7 @@ class SidebarComponent extends Component {
         <div className={classes.sidebarContainer}>
           <Button
             onClick={this.newSnippetBtnClick}
-            // When user clicks on 'new notes' change to 'cancel'
+            //! When user clicks on 'new notes' change to 'cancel'
             className={classes.newSnippetBtn}>{this.state.addingSnippet ? 'Cancel' : 'New snippet'}</Button>
             {
               this.state.addingSnippet ? 
