@@ -29,7 +29,10 @@ const styles = theme => ({
   editorContainer: {
     height: '100%',
     boxSizing: 'border-box',
-  }
+    color: 'white',
+  },
+  
+  
 });
 
 export default styles;
