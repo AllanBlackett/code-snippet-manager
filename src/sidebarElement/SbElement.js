@@ -21,7 +21,7 @@ class SidebarElementComponent extends Component {
         alignItems='flex-start'>  
           <div 
             className={classes.textSection}
-            onClick={() => this.selecSnippet(_snippet, _index)}>
+            onClick={() => this.selectSnippet(_snippet, _index)}>
               <ListItemText
                 primary={_snippet.title}
                 secondary={removeHTMLTags(_snippet.body.substring(0, 30)) + '...'}>

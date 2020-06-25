@@ -21,9 +21,20 @@ class App extends Component {
     return (
       <div className="app-container">
         <SidebarComponent 
+        // Adding props
           selectedSnippetIndex={this.state.selectedSnippetIndex}
-          snippets={this.state.snippets}></SidebarComponent>
-        <EditorComponent></EditorComponent>
+          snippets={this.state.snippets}
+          deleteSnippet={this.deleteSnippet}
+          selectSnippet={this.selectSnippet}
+          newSnippet={this.newSnippet}></SidebarComponent>
+        {
+        // When an element from the sidebar is selected, make the editor display
+          this.state.selectedSnippet ?
+          <EditorComponent selectedSnippet={this.state.selectedSnippet}
+          selectedSnippetIndex={this.state.selectedSnippet}
+          snippets={this.state.snippets}></EditorComponent> :
+          null
+        }
       </div>
     );
   }
@@ -46,6 +57,8 @@ class App extends Component {
       });
   }
     
+  selectSnippet = (snippet, index) => this.setState({ selectedSnippetIndex: index, selectedSnippet: snippet });
+
   }
 
 

@@ -73,7 +73,7 @@ class SidebarComponent extends Component {
   newSnippet = () => {
     console.log(this.state);
   }
-  selectSnippet = () => console.log('select snippet');
+  selectSnippet = (n, i) => this.props.selectSnippet(n, i);
   deleteSnippet = () => console.log('delete snippet');
 
 } 
