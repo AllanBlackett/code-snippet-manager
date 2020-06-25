@@ -96,6 +96,8 @@ class App extends Component {
     if(this.state.selectedSnippetIndex === snippetIndex) {
       this.setState({ selectedSnippetIndex: null, selectedSnippet: null });
     } else {
+      //! this.state.snippets.length >=1 ?
+
       this.state.snippets.length > 1 ?
       // When user delete snippet, deselect the snippet [-1] to prevent server errors.
       this.selectSnippet(this.state.snippets[this.state.selectedSnippetIndex - 1], this.state.selectedSnippetIndex - 1) :
