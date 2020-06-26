@@ -13,8 +13,7 @@ class App extends Component {
       selectedSnippetIndex: null,
       selectedSnippet: null,
       snippets: null
-    }
-    
+    }    
   }
 
   render() {

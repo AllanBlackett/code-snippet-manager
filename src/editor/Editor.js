@@ -63,7 +63,7 @@ class EditorComponent extends Component {
   updateBody = async (txt) => {
     // Wait for the state to update
     await this.setState({ text: txt });
-    // once state is update then call the update() method
+    // once state is updated then call the update() method
     this.update();
   };
 
